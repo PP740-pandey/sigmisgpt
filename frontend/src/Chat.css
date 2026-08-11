@@ -1,0 +1,319 @@
+.chatContentArea {
+    flex: 1;
+    width: 100%;
+    max-width: 820px;
+    overflow-y: auto;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chatContentArea::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chatContentArea::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+/* Hero Section */
+.heroContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto 0;
+    text-align: center;
+    width: 100%;
+    padding: 2rem 0;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.heroBadge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.85rem;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.25);
+    border-radius: 999px;
+    font-size: 0.775rem;
+    color: #818cf8;
+    margin-bottom: 1.25rem;
+}
+
+.heroLogo {
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+}
+
+.heroTitle {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: #f8fafc;
+    margin: 0;
+    letter-spacing: -0.03em;
+}
+
+.heroGradientText {
+    background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.heroSubtitle {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    margin: 0.5rem 0 2.5rem;
+    max-width: 480px;
+}
+
+/* Suggestions Grid */
+.suggestionsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    max-width: 720px;
+}
+
+.suggestionCard {
+    background: rgba(24, 24, 27, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 1.25rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.suggestionCard:hover {
+    background: rgba(39, 39, 42, 0.8);
+    border-color: rgba(99, 102, 241, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.cardIcon {
+    font-size: 1.1rem;
+    color: #818cf8;
+}
+
+.arrowIcon {
+    font-size: 0.75rem;
+    color: #64748b;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.suggestionCard:hover .arrowIcon {
+    opacity: 1;
+    transform: translate(2px, -2px);
+    color: #f8fafc;
+}
+
+.cardTitle {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin: 0 0 0.35rem;
+}
+
+.cardSubtitle {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Messages Container */
+.messagesContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.messageRow {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    animation: fadeIn 0.25s ease-out;
+}
+
+.userRow {
+    flex-direction: row-reverse;
+}
+
+.avatarWrapper {
+    flex-shrink: 0;
+}
+
+.userMsgAvatar {
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aiMsgAvatar {
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.aiMsgAvatar.pulse {
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.messageBubble {
+    max-width: 82%;
+    border-radius: 16px;
+    padding: 0.85rem 1.15rem;
+    font-size: 0.925rem;
+    line-height: 1.6;
+    word-break: break-word;
+}
+
+.userRow .messageBubble {
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: #ffffff;
+    border-bottom-right-radius: 4px;
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+}
+
+.assistantRow .messageBubble {
+    background: rgba(24, 24, 27, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #e2e8f0;
+    border-bottom-left-radius: 4px;
+}
+
+/* Inline code & code blocks */
+.inlineCode {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ec4899;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85em;
+}
+
+.codeBlockWrapper {
+    margin: 0.75rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #0d0d11;
+}
+
+.codeBlockHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.4rem 0.85rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+.langTag {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    text-transform: lowercase;
+    color: #818cf8;
+}
+
+.copyBtn {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 3px 8px;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+}
+
+.copyBtn:hover {
+    color: #f8fafc;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.codeBlockWrapper pre {
+    margin: 0;
+    padding: 1rem;
+    overflow-x: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+}
+
+/* Typing indicator dots */
+.loadingBubble {
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.typingIndicator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.typingIndicator span {
+    height: 7px;
+    width: 7px;
+    background: #818cf8;
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.typingIndicator span:nth-child(1) { animation-delay: -0.32s; }
+.typingIndicator span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1.0); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+@media (max-width: 640px) {
+    .heroTitle {
+        font-size: 2rem;
+    }
+    .suggestionsGrid {
+        grid-template-columns: 1fr;
+    }
+    .messageBubble {
+        max-width: 90%;
+    }
+}
