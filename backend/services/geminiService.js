@@ -5,7 +5,7 @@ export const getGeminiClient = () => {
     if (!apiKey) {
         throw new Error("GEMINI_API_KEY is missing in backend environment configuration (.env)");
     }
-    return new GoogleGenAI({ apiKey });
+    return new GoogleGenAI({ apiKey, vertexai: false });
 };
 
 /**
