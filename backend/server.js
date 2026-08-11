@@ -49,12 +49,15 @@ app.use((err, req, res, next) => {
     });
 });
 
-// Start Server
-const start = async () => {
-    await connectDB();
+// Connect to DB once (shared across serverless invocations)
+connectDB();
+
+// Export for Vercel serverless runtime
+export default app;
+
+// Start standalone server when run directly (local dev / Railway / Render / etc.)
+if (process.env.NODE_ENV !== "production" || process.env.STANDALONE === "true") {
     app.listen(PORT, () => {
         console.log(`🌐 Server running on http://localhost:${PORT}`);
     });
-};
-
-start();
+}
